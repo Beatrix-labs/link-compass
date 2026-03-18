@@ -37,7 +37,7 @@ Many reconnaissance tools rely on heavy web-request libraries that download enti
 Clone the repository to your local machine:
 
 ```bash
-git clone
+git clone https://github.com/Beatrix-labs/link-compass.git
 cd link-compass
 ```
 
