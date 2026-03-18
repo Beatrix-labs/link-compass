@@ -1,0 +1,304 @@
+{
+    "metadata": {
+        "target": "detik.com",
+        "tool": "Link-Compass",
+        "version": "0.1.0"
+    },
+    "reconnaissance": {
+        "total_active_subdomains": 51,
+        "subdomains": [
+            "adpoint.detik.com",
+            "adjs.detik.com",
+            "adimages.detik.com",
+            "cdnv.detik.com",
+            "betaminisite.detik.com",
+            "betax.detik.com",
+            "analytic20.detik.com",
+            "adsbox.detik.com",
+            "base.detik.com",
+            "analytic.detik.com",
+            "bandung.detik.com",
+            "aula.detik.com",
+            "m.bukukuning.detik.com",
+            "cmsx.detik.com",
+            "caricinta.detik.com",
+            "android.detik.com",
+            "insight.detik.com",
+            "aggregator.detik.com",
+            "blog.detik.com",
+            "cmskayumanis.detik.com",
+            "apipay.detik.com",
+            "apicomment.detik.com",
+            "pa.detik.com",
+            "asset.detik.com",
+            "bukukuning.detik.com",
+            "cdnfyb.detik.com",
+            "cdnrekomendit.detik.com",
+            "blackbox.detik.com",
+            "channelboxiklanbaris.detik.com",
+            "cdnstatic.detik.com",
+            "apis.detik.com",
+            "jobs.detik.com",
+            "adsmart.detik.com",
+            "aci.detik.com",
+            "m.apps.detik.com",
+            "adcontent.detik.com",
+            "comment.detik.com",
+            "blackberry.detik.com",
+            "apps.detik.com",
+            "20.detik.com",
+            "collent.detik.com",
+            "detik.com",
+            "event.detik.com",
+            "cmscomm.detik.com",
+            "apievent.detik.com",
+            "connect.detik.com",
+            "capcay.detik.com",
+            "bms.detik.com",
+            "hr.detik.com",
+            "m.caricinta.detik.com",
+            "cmsad.detik.com"
+        ]
+    },
+    "advanced_probing": {
+        "total_endpoints_scanned": 59,
+        "results": [
+            {
+                "url": "http://cdnv.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://cdnv.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://betax.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://analytic20.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://analytic20.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://base.detik.com",
+                "status_code": 401
+            },
+            {
+                "url": "https://base.detik.com",
+                "status_code": 401
+            },
+            {
+                "url": "http://betax.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://analytic.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://analytic.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://bandung.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://caricinta.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://caricinta.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "http://android.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://android.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://insight.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://insight.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "http://aggregator.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://aggregator.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://blog.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://blog.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://apipay.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://apipay.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "http://apicomment.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://apicomment.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://pa.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://pa.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://cdnfyb.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://cdnrekomendit.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://cdnfyb.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://cdnrekomendit.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://cdnstatic.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "http://apis.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://apis.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://cdnstatic.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://jobs.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "http://jobs.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://adsmart.detik.com",
+                "status_code": 419
+            },
+            {
+                "url": "http://adsmart.detik.com",
+                "status_code": 419
+            },
+            {
+                "url": "http://comment.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://comment.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://blackberry.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://blackberry.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://apps.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://apps.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://collent.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://collent.detik.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://20.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://20.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://connect.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://connect.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://hr.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://m.caricinta.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://m.caricinta.detik.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://hr.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://event.detik.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://event.detik.com",
+                "status_code": 200
+            }
+        ]
+    }
+}

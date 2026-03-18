@@ -12,19 +12,39 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
+TREASURE_KEYWORDS = ['admin', 'dev', 'staging', 'api', 'config', 'staff', 'portal', 'beta', 'cms', 'dummy']
+
+def extract_tech(headers):
+    """Helper function to extract Server and X-Powered-By from HTTP headers."""
+    tech = []
+    
+    server = headers.get('Server')
+    if server:
+        tech.append(server.strip())
+        
+    powered_by = headers.get('X-Powered-By')
+    if powered_by:
+        tech.append(f"Powered by {powered_by.strip()}")
+        
+    return f" [ Tech: {', '.join(tech)} ]" if tech else ""
+
 def fetch_status(url):
-    """Check HTTP status code using HEAD method to make it super light."""
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='HEAD')
+    """Check HTTP status code and extract technology headers using HEAD method."""
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}, method='HEAD')
     
     try:
         with urllib.request.urlopen(req, timeout=config.TIMEOUT, context=ctx) as response:
-            return url, response.status
+            tech_str = extract_tech(response.info())
+            return url, response.status, tech_str
+            
     except urllib.error.HTTPError as e:
-        return url, e.code
+        tech_str = extract_tech(e.info())
+        return url, e.code, tech_str
+        
     except urllib.error.URLError:
-        return url, 0
+        return url, 0, ""
     except Exception:
-        return url, 0
+        return url, 0, ""
 
 def run(active_links, max_threads):
     print(f"{config.WARN}[!] Passing {len(active_links)} links to Advanced Status Checker...{config.RESET}")
@@ -42,7 +62,7 @@ def run(active_links, max_threads):
         future_to_url = {executor.submit(fetch_status, url): url for url in target_urls}
         
         for future in concurrent.futures.as_completed(future_to_url):
-            url, status = future.result()
+            url, status, tech_str = future.result()
             
             if status > 0:
                 results.append((url, status))
@@ -54,7 +74,10 @@ def run(active_links, max_threads):
                 else:
                     color = config.ERROR
 
-                print(f"{color}[ {status} ] -> {url}{config.RESET}")
+                is_interesting = any(key in url.lower() for key in TREASURE_KEYWORDS)
+                prefix = f"{config.ERROR}[ INTERESTING ]{config.RESET} " if is_interesting else ""
+
+                print(f"{prefix}{color}[ {status} ] -> {url}{config.INFO}{tech_str}{config.RESET}")
 
     print(f"{config.INFO}--------------------------------------------------{config.RESET}")
     print(f"{config.WARN}[!] Advanced Probing Completed.{config.RESET}")

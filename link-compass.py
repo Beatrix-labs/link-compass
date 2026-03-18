@@ -22,6 +22,9 @@ def main():
     parser.add_argument("-s", "--status", help="Enable HTTP status code checking (200, 403, 404)", action="store_true")
     parser.add_argument("-o", "--output", help="Output file to save the results")
     parser.add_argument("-t", "--threads", help=f"Number of concurrent threads (Default: {config.MAX_THREADS})", type=int, default=config.MAX_THREADS)
+    parser.add_argument("-j", "--json", type=str, metavar='FILE', help="Export the final results to a structured JSON file")
+    parser.add_argument("--timeout", help="Custom timeout for API requests in seconds (Default: 15)", type=int, default=15)
+    parser.add_argument("--deep", help="Enable deep scan using Wayback Machine (slower but comprehensive)", action="store_true")
 
     if len(sys.argv) == 1:
         parser.print_help(sys.argv[0])
@@ -33,14 +36,21 @@ def main():
 
     print(f"{config.INFO}[*] Target Domain : {args.domain}{config.RESET}")
     print(f"{config.INFO}[*] Threads       : {args.threads}{config.RESET}")
+    print(f"{config.INFO}[*] Timeout       : {args.timeout} seconds{config.RESET}")
     
-    if args.status:
-        print(f"{config.INFO}[*] Mode          : Advanced{config.RESET}")
+    if args.deep:
+        print(f"{config.INFO}[*] Scan Mode     : DEEP (Wayback Machine Active){config.RESET}")
     else:
-        print(f"{config.INFO}[*] Mode          : Base Scan (Discovery Only){config.RESET}")
+        print(f"{config.INFO}[*] Scan Mode     : FAST (Default APIs Only){config.RESET}")
+        
+    if args.status:
+        print(f"{config.INFO}[*] Advanced      : Status Checker Enabled{config.RESET}")
 
     if args.output:
         print(f"{config.INFO}[*] Output File   : {args.output}{config.RESET}")
+
+    if args.json:
+        print(f"{config.INFO}[*] JSON Output   : {args.json}{config.RESET}")
 
     print(f"{config.INFO}--------------------------------------------------{config.RESET}")
 
@@ -53,7 +63,7 @@ def main():
         import modules.status_checker as checker
         import utils.reporter as reporter
 
-        active_links = engine.run_base_scan(args.domain, args.threads)
+        active_links = engine.run_base_scan(args.domain, args.threads, args.timeout, args.deep)
         
         advanced_data = None 
         
@@ -61,8 +71,12 @@ def main():
             advanced_data = checker.run(active_links, args.threads)
             
         if args.output and active_links:
-            print(f"{config.INFO}[*] Generating report file...{config.RESET}")
+            print(f"{config.INFO}[*] Generating txt report file...{config.RESET}")
             reporter.save_to_file(args.output, args.domain, active_links, advanced_data)
+
+        if args.json and active_links:
+            print(f"{config.INFO}[*] Generating JSON report...{config.RESET}")
+            reporter.export_json(args.domain, active_links, advanced_data, args.json)
 
         print(f"{config.SUCCESS}[+] Scan completed successfully.{config.RESET}")
     except KeyboardInterrupt:

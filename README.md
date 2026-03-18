@@ -20,6 +20,10 @@ Many reconnaissance tools rely on heavy web-request libraries that download enti
 - **Active Resolution:** Automatically filters out dead or unresolvable subdomains.
 - **Status Probing:** Concurrently checks both HTTP and HTTPS endpoints for accurate status codes.
 - **Automated Reporting:** Clean, scannable CLI output with the ability to export results to structured text files.
+- **Deep Scan Mode:** Optional integration with Wayback Machine (Archive.org) for historical subdomain discovery.
+- **Tech Fingerprinting:** Automatically extracts and displays Server and X-Powered-By headers (e.g., Nginx, IIS, Cloudflare) without downloading the body.
+- **Treasure Highlighter:** Instantly flags interesting subdomains (admin, dev, api, staging) directly in the CLI output.
+- **Smart Retry System:** Auto-retry mechanism with customizable timeouts for handling unstable API sources.
 - **Global Execution:** Designed to act as a native system command.
 
 ## Prerequisites
@@ -85,6 +89,9 @@ link-compass -d target.com --status -t 30 -o output.txt
 | -s | --status | Enable HTTP status code checking (200, 403, 404) | No |
 | -t | --threads | Number of concurrent threads (Default: 10) | No |
 | -o | --output | Save the final output to a specified text file | No |
+| -j | --json | Export the final result to a structured JSON file | No |
+| --timeout | --timeout | Custom timeout for API requests in seconds (Default: 15) | No |
+| --deep | --deep | Enable deep scan using Wayback Machine (slower but comprehensive) | No |
 
 
 ## Project Architecture

@@ -1,0 +1,243 @@
+{
+    "metadata": {
+        "target": "starlink.com",
+        "tool": "Link-Compass",
+        "version": "0.1.0"
+    },
+    "reconnaissance": {
+        "total_active_subdomains": 50,
+        "subdomains": [
+            "starlink.com",
+            "admin.b.staging.starlink.com",
+            "dishy.starlink.com",
+            "report.hcaptcha.beta.starlink.com",
+            "lb.starlink.com",
+            "compliance.starlink.com",
+            "hcaptcha.beta.starlink.com",
+            "connect.starlink.com",
+            "gear.starlink.com",
+            "assets.hcaptcha.starlink.com",
+            "hcaptcha.starlink.com",
+            "imgs.hcaptcha.starlink.com",
+            "assets.hcaptcha.beta.starlink.com",
+            "api2.beta.starlink.com",
+            "web-api.beta.starlink.com",
+            "beta.starlink.com",
+            "internal.beta.starlink.com",
+            "admin.staging.starlink.com",
+            "admin.b.p.starlink.com",
+            "lb.beta.starlink.com",
+            "admin.beta.starlink.com",
+            "admin.b.starlink.com",
+            "api.p.starlink.com",
+            "admin.b.beta.starlink.com",
+            "api2.starlink.com",
+            "api.beta.starlink.com",
+            "api.staging.starlink.com",
+            "support.p.starlink.com",
+            "sentry.starlink.com",
+            "phone.b.beta.starlink.com",
+            "www.starlink.com",
+            "p.starlink.com",
+            "phone.p.starlink.com",
+            "internal.p.starlink.com",
+            "staging.starlink.com",
+            "www.p.starlink.com",
+            "admin.p.starlink.com",
+            "support.beta.starlink.com",
+            "metabase.starlink.com",
+            "docs.space-safety.starlink.com",
+            "o2.ptr2707.starlink.com",
+            "report.hcaptcha.starlink.com",
+            "www.beta.starlink.com",
+            "docs.staging.space-safety.starlink.com",
+            "vault.beta.starlink.com",
+            "sentry.beta.starlink.com",
+            "api.starlink.com",
+            "imgs.hcaptcha.beta.starlink.com",
+            "admin.starlink.com",
+            "internal.starlink.com"
+        ]
+    },
+    "advanced_probing": {
+        "total_endpoints_scanned": 44,
+        "results": [
+            {
+                "url": "http://web-api.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://starlink.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://starlink.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://web-api.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://lb.starlink.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://report.hcaptcha.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://hcaptcha.starlink.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://imgs.hcaptcha.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://gear.starlink.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://assets.hcaptcha.starlink.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://gear.starlink.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://api2.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://hcaptcha.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://imgs.hcaptcha.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://assets.hcaptcha.starlink.com",
+                "status_code": 200
+            },
+            {
+                "url": "https://assets.hcaptcha.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://hcaptcha.starlink.com",
+                "status_code": 200
+            },
+            {
+                "url": "http://api2.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://lb.beta.starlink.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://api.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://api.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://www.starlink.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://www.starlink.com",
+                "status_code": 403
+            },
+            {
+                "url": "https://api2.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://api2.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://phone.p.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://phone.b.beta.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://phone.p.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://phone.b.beta.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://support.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://support.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "http://www.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://metabase.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://www.beta.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://docs.space-safety.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://metabase.starlink.com",
+                "status_code": 502
+            },
+            {
+                "url": "https://report.hcaptcha.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://report.hcaptcha.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "http://api.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://api.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://docs.staging.space-safety.starlink.com",
+                "status_code": 404
+            },
+            {
+                "url": "https://imgs.hcaptcha.beta.starlink.com",
+                "status_code": 502
+            }
+        ]
+    }
+}

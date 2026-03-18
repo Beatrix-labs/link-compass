@@ -4,6 +4,20 @@ All notable changes to **Link-Compass** will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-03-18
+
+### Added
+- **Deep Scan Engine (`--deep`)**: Added Wayback Machine (Archive.org) integration for exhaustive historical subdomain discovery.
+- **Technology Fingerprinting**: The status checker now extracts and displays `Server` and `X-Powered-By` headers using a lightweight `HEAD` request.
+- **Treasure Highlighter**: Added visual tagging `[ INTERESTING ]` for high-value targets containing keywords like *admin, dev, staging, api, config*.
+- **JSON Export (`--json`)**: Added support to export scan results into a structured JSON format.
+- **Custom Timeout (`--timeout`)**: Allow users to define custom wait times for API requests.
+- **Auto-Retry Mechanism**: Engines will now automatically retry up to 3 times before failing when encountering unstable APIs (like crt.sh or AlienVault).
+
+### Changed
+- Replaced the failing Wayback Machine default scan with AlienVault OTX (Passive DNS) for the default fast scan mode.
+- Optimized `run_base_scan` logic to handle dynamic engine loading based on user arguments.
+
 ## [0.1.0] - 2026-03-18
 
 ### Added
