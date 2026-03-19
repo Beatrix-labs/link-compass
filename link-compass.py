@@ -20,6 +20,8 @@ def main():
 
     parser.add_argument("-d", "--domain", help="Target domain (e.g., example.com)", required=True)
     parser.add_argument("-s", "--status", help="Enable HTTP status code checking (200, 403, 404)", action="store_true")
+    parser.add_argument("--takeover", help="Scan for Subdomain Takeover vulnerabilities", action="store_true")
+    parser.add_argument("--hunter", help="Hunt for sensitive files (/.env, /.git, etc.)", action="store_true")
     parser.add_argument("-o", "--output", help="Output file to save the results")
     parser.add_argument("-t", "--threads", help=f"Number of concurrent threads (Default: {config.MAX_THREADS})", type=int, default=config.MAX_THREADS)
     parser.add_argument("-j", "--json", type=str, metavar='FILE', help="Export the final results to a structured JSON file")
@@ -31,7 +33,6 @@ def main():
         sys.exit(1)
 
     args = parser.parse_args()
-
     print_banner()
 
     print(f"{config.INFO}[*] Target Domain : {args.domain}{config.RESET}")
@@ -45,12 +46,10 @@ def main():
         
     if args.status:
         print(f"{config.INFO}[*] Advanced      : Status Checker Enabled{config.RESET}")
-
-    if args.output:
-        print(f"{config.INFO}[*] Output File   : {args.output}{config.RESET}")
-
-    if args.json:
-        print(f"{config.INFO}[*] JSON Output   : {args.json}{config.RESET}")
+    if args.takeover:
+        print(f"{config.INFO}[*] Advanced      : Takeover Scan Enabled{config.RESET}")
+    if args.hunter:
+        print(f"{config.INFO}[*] Advanced      : Modul Hunter Enabled{config.RESET}")
 
     print(f"{config.INFO}--------------------------------------------------{config.RESET}")
 
@@ -58,27 +57,34 @@ def main():
 
     try:
         print(f"{config.INFO}[*] Initializing scan engine...{config.RESET}")
-        
         import core.scanner as engine
-        import modules.status_checker as checker
         import utils.reporter as reporter
 
         active_links = engine.run_base_scan(args.domain, args.threads, args.timeout, args.deep)
-        
         advanced_data = None 
         
-        if args.status and active_links:
-            advanced_data = checker.run(active_links, args.threads)
+        if active_links:
+            if args.status:
+                import modules.status_checker as checker
+                advanced_data = checker.run(active_links, args.threads)
             
-        if args.output and active_links:
-            print(f"{config.INFO}[*] Generating txt report file...{config.RESET}")
-            reporter.save_to_file(args.output, args.domain, active_links, advanced_data)
+            if args.takeover:
+                import modules.takeover as takeover
+                takeover.run(active_links, args.threads)
+                
+            if args.hunter:
+                import modules.hunter as hunter
+                hunter.run(active_links, args.threads)
 
-        if args.json and active_links:
-            print(f"{config.INFO}[*] Generating JSON report...{config.RESET}")
-            reporter.export_json(args.domain, active_links, advanced_data, args.json)
+            if args.output:
+                print(f"{config.INFO}[*] Generating txt report file...{config.RESET}")
+                reporter.save_to_file(args.output, args.domain, active_links, advanced_data)
 
-        print(f"{config.SUCCESS}[+] Scan completed successfully.{config.RESET}")
+            if args.json:
+                print(f"{config.INFO}[*] Generating JSON report...{config.RESET}")
+                reporter.export_json(args.domain, active_links, advanced_data, args.json)
+
+        print(f"{config.SUCCESS}[+] Reconnaissance and probing completed.{config.RESET}")
     except KeyboardInterrupt:
         print(f"\n{config.ERROR}[-] Scan interrupted by user (Ctrl+C). Exiting safely...{config.RESET}")
         sys.exit(1)

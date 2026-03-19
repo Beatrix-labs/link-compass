@@ -4,6 +4,15 @@ All notable changes to **Link-Compass** will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-03-19
+
+### Added
+- **Modul Hunter (`--hunter`)**: Added a highly efficient scanner for discovering sensitive exposed files (`/.env`, `/.git/config`, etc.) using signature matching.
+- **Subdomain Takeover Scanner (`--takeover`)**: Added capability to detect dangling subdomains pointing to inactive cloud services (e.g., AWS S3, GitHub Pages, Heroku).
+
+### Changed
+- Replaced the `AlienVault` API engine with `Anubis` API to eliminate frequent `HTTP 429: Too Many Requests` errors and significantly improve scan reliability.
+
 ## [0.2.0] - 2026-03-18
 
 ### Added

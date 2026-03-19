@@ -1,5 +1,5 @@
 NAME = "Link-Compass"
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 AUTHOR = "Beatrix-labs"
 
 INFO = '\033[96m'

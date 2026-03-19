@@ -24,6 +24,8 @@ Many reconnaissance tools rely on heavy web-request libraries that download enti
 - **Tech Fingerprinting:** Automatically extracts and displays Server and X-Powered-By headers (e.g., Nginx, IIS, Cloudflare) without downloading the body.
 - **Treasure Highlighter:** Instantly flags interesting subdomains (admin, dev, api, staging) directly in the CLI output.
 - **Smart Retry System:** Auto-retry mechanism with customizable timeouts for handling unstable API sources.
+- **Sensitive File Hunter:** Probes active subdomains for exposed critical files (e.g., `/.env`, `/.git/config`) using optimized byte-reading to save bandwidth.
+- **Subdomain Takeover Scanner:** Analyzes HTTP responses against known cloud provider error signatures (GitHub, Heroku, S3, etc.) to detect hijackable subdomains.
 - **Global Execution:** Designed to act as a native system command.
 
 ## Prerequisites
@@ -92,7 +94,8 @@ link-compass -d target.com --status -t 30 -o output.txt
 | -j | --json | Export the final result to a structured JSON file | No |
 | --timeout | --timeout | Custom timeout for API requests in seconds (Default: 15) | No |
 | --deep | --deep | Enable deep scan using Wayback Machine (slower but comprehensive) | No |
-
+| --takeover | --takeover | Scan for Subdomain Takeover vulnerabilities | No |
+| --hunter | --hunter | Hunt for sensitive files (/.env, /.git, etc.) | No |
 
 ## Project Architecture
 

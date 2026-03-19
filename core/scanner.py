@@ -68,31 +68,24 @@ def fetch_hackertarget(domain, timeout):
                 
     return subdomains
 
-def fetch_alienvault(domain, timeout):
-    url = f"https://otx.alienvault.com/api/v1/indicators/domain/{domain}/passive_dns"
+def fetch_anubis(domain, timeout):
+    """Subdomain enumeration using Anubis API (More stable than AlienVault)."""
+    url = f"https://jldc.me/anubis/subdomains/{domain}"
     subdomains = set()
-    max_retries = 3
     
-    for attempt in range(max_retries):
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
-            with urllib.request.urlopen(req, timeout=timeout) as response:
-                if response.status == 200:
-                    data = json.loads(response.read().decode('utf-8'))
-                    if 'passive_dns' in data:
-                        for entry in data['passive_dns']:
-                            hostname = entry.get('hostname', '').strip().lower()
-                            if hostname.endswith(domain) and not hostname.startswith('*'):
-                                subdomains.add(hostname)
-                    print(f"{config.SUCCESS}[+] AlienVault engine found {len(subdomains)} subdomains.{config.RESET}")
-                    return subdomains
-        except Exception as e:
-            if attempt < max_retries - 1:
-                print(f"{config.WARN}[!] AlienVault timed out. Retrying ({attempt+1}/{max_retries})...{config.RESET}")
-                time.sleep(2)
-            else:
-                print(f"{config.ERROR}[-] AlienVault failed after {max_retries} attempts: {e}{config.RESET}")
-                
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=timeout) as response:
+            if response.status == 200:
+                data = json.loads(response.read().decode('utf-8'))
+                for sub in data:
+                    clean_name = sub.strip().lower()
+                    if clean_name.endswith(domain):
+                        subdomains.add(clean_name)
+                print(f"{config.SUCCESS}[+] Anubis engine found {len(subdomains)} subdomains.{config.RESET}")
+                return subdomains
+    except Exception:
+        pass
     return subdomains
 
 def fetch_wayback(domain, timeout):
@@ -139,7 +132,7 @@ def run_base_scan(domain, max_threads, timeout=15, deep_scan=False):
     
     raw_subdomains = set()
     
-    engines = [fetch_crtsh, fetch_hackertarget, fetch_alienvault]
+    engines = [fetch_crtsh, fetch_hackertarget, fetch_anubis]
     
     if deep_scan:
         print(f"{config.INFO}[*] Deep Scan triggered! Powering up Wayback Machine...{config.RESET}")
