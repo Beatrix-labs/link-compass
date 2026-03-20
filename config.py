@@ -1,5 +1,5 @@
 NAME = "Link-Compass"
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 AUTHOR = "Beatrix-labs"
 
 INFO = '\033[96m'
@@ -7,6 +7,9 @@ SUCCESS = '\033[92m'
 WARN = '\033[93m'
 ERROR = '\033[91m'
 RESET = '\033[0m'
+
+VIRUSTOTAL_API = ""
+SECURITYTRAILS_API = ""
 
 TIMEOUT = 5
 MAX_THREADS = 10

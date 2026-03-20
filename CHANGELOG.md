@@ -4,6 +4,20 @@ All notable changes to **Link-Compass** will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-03-20
+
+### Added
+- **Premium API Integration**: Added support for VirusTotal and SecurityTrails via API keys in `config.py`.
+- **New OSINT Engines**: Integrated AlienVault OTX and ThreatMiner for broader passive discovery.
+- **Wildcard DNS Filtering**: Automatic detection and filtering of catch-all IP addresses to prevent false positives.
+- **Advanced Status Probing**: Added extraction of Response Size (`Content-Length`) and a 6-char MD5 Hash for page deduplication.
+- **Reverse Proxy Detection**: Automated identification of Cloudflare, Akamai, Varnish, and more via header signatures.
+
+### Changed
+- Increased `MAX_THREADS` default to 20 for better performance on stable connections.
+- Optimized `urllib` requests with custom User-Agent to reduce blocks from API providers.
+- Updated JSON report versioning for better integration with external tools.
+
 ## [0.3.0] - 2026-03-19
 
 ### Added

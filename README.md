@@ -16,17 +16,13 @@ Many reconnaissance tools rely on heavy web-request libraries that download enti
 
 ## Features
 
-- **Subdomain Enumeration:** Extracts unique subdomains via `crt.sh`.
-- **Active Resolution:** Automatically filters out dead or unresolvable subdomains.
-- **Status Probing:** Concurrently checks both HTTP and HTTPS endpoints for accurate status codes.
-- **Automated Reporting:** Clean, scannable CLI output with the ability to export results to structured text files.
-- **Deep Scan Mode:** Optional integration with Wayback Machine (Archive.org) for historical subdomain discovery.
-- **Tech Fingerprinting:** Automatically extracts and displays Server and X-Powered-By headers (e.g., Nginx, IIS, Cloudflare) without downloading the body.
-- **Treasure Highlighter:** Instantly flags interesting subdomains (admin, dev, api, staging) directly in the CLI output.
-- **Smart Retry System:** Auto-retry mechanism with customizable timeouts for handling unstable API sources.
-- **Sensitive File Hunter:** Probes active subdomains for exposed critical files (e.g., `/.env`, `/.git/config`) using optimized byte-reading to save bandwidth.
-- **Subdomain Takeover Scanner:** Analyzes HTTP responses against known cloud provider error signatures (GitHub, Heroku, S3, etc.) to detect hijackable subdomains.
-- **Global Execution:** Designed to act as a native system command.
+- **Multi-Engine OSINT:** Queries 8+ sources including `crt.sh`, `Anubis`, `HackerTarget`, `AlienVault`, `ThreatMiner`, and `Wayback Machine`.
+- **Premium Intelligence:** Optional integration with **VirusTotal** and **SecurityTrails** API for enterprise-grade discovery.
+- **Wildcard Defense:** Smart DNS filtering to eliminate "garbage" subdomains from wildcard configurations.
+- **Advanced Probing:** Not just status codes, but also **Content Size**, **MD5 Hashing**, and **Tech Stack** identification.
+- **Infrastructure Profiling:** Detects Reverse Proxies (Cloudflare, Akamai, etc.) and Server headers out-of-the-box.
+- **Vulnerability Modules:** Integrated **Subdomain Takeover** and **Sensitive File Hunter** (/.env, /.git).
+- **Zero-Bloat:** 100% Native Python. No `pip install`, no heavy dependencies, works perfectly on Termux.
 
 ## Prerequisites
 
