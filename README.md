@@ -1,3 +1,5 @@
+> Archive: I'm focusing more on active Bug Hunting research.
+
 # Link-Compass
 
 **Developed by Beatrix Labs**
