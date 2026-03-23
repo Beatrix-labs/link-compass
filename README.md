@@ -1,4 +1,4 @@
-> Archive: I'm focusing more on active Bug Hunting research.
+> ⚠️ STATUS: DEPRECATED - This project is no longer maintained. It served as a great learning journey for OSINT and Python multi-threading.
 
 # Link-Compass
 
